@@ -25,26 +25,50 @@
 
     <script>
     $(document).ready(function() {
-        $('#example').DataTable({
-            ajax: "apiManager/getSabyTable",
-            deferRender: true,
-            scrollY: 200,
-            scrollCollapse: true,
-            scroller: true,
-            /*success: function(response) {
-                var fullString = '';
-                var jsonArray = JSON.parse(response);
-                jsonArray.forEach(function(jsonitem) {
-                    fullString += "<tr>";
-                    fullString += "<td>" + jsonItem.id + "</td>";
-                    fullString += "<td>" + jsonItem.saby + "</td>";
-                    fullString += "<td>" + jsonItem.server + "</td>";
-                    console.log(fullString);
+        // $('#example').DataTable({
+        //     ajax: "apiManager/getSabyTable",
+        //     deferRender: true,
+        //     scrollY: 200,
+        //     scrollCollapse: true,
+        //     scroller: true,
+        //     // success: function(response) {
+        //     //     var fullString = '';
+        //     //     var jsonArray = JSON.parse(response);
+        //     //     jsonArray.forEach(function(jsonitem) {
+        //     //         fullString += "<tr>";
+        //     //         fullString += "<td>" + jsonItem.id + "</td>";
+        //     //         fullString += "<td>" + jsonItem.saby + "</td>";
+        //     //         fullString += "<td>" + jsonItem.server + "</td></tr>";
 
-                });
-                $('#example tbody').empty().append(fullString);
-                
-            }*/
+
+        //     //     });
+        //     //     console.log(fullString);
+        //     //     $('#example tbody').append(fullString);
+        //     //     $('#example').draw();
+        //     // }
+        // });
+
+        $(document).ready(function() {
+            $('#example').DataTable({
+
+                "ajax": {
+                    "url": "apiManager/getSabyTable", //task do refresh the table after 30 sec 
+                },
+                "columns": [{
+                        "data": "id" // data ---> and how the data name come from database 
+                    },
+                    {
+                        "data": "saby"
+                    },
+                    {
+                        "data": "server"
+                    }
+                ]
+            });
+            /*setInterval(function() {
+                $('#example').load("apiManager/getSabyTable");
+                refresh();
+            }, 30000);*/
         });
     })
     </script>

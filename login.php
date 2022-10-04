@@ -12,6 +12,7 @@
 
 <body>
     <form id="LoginForm">
+        <div id="login_alert"></div>
         <div class="container">
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="name" id="name" required>
@@ -38,7 +39,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "v2Slim/apiManager/loginFunction",
+            url: "apiManager/loginFunction",
             data: {
                 do_login: "do_login",
                 'user_name': $('#name').val(),
@@ -46,7 +47,9 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response == "success") {
-                    window.location.href = "home.php";
+                    window.location.href = "apiManager/home.php";
+                } else {
+                    $("#login_alert").html(response);
                 }
             }
         });

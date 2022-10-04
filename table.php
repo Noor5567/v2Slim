@@ -42,7 +42,7 @@ td {
 <script>
 $.ajax({
     type: "GET",
-    url: "v2Slim/apiManager/getSabyTable",
+    url: "apiManager/getSabyTable",
     success: function(response) {
         var fullString = '';
         var jsonArray = JSON.parse(response);
@@ -51,13 +51,13 @@ $.ajax({
             fullString += "<td>" + jsonItem.id + "</td>";
             fullString += "<td>" + jsonItem.saby + "</td>";
             fullString += "<td>" + jsonItem.server + "</td>";
-            fullString += "<td>" + jsonItem.easy_name + "</td>";
-            fullString += "<td>" + jsonItem.ip + "</td>";
-            fullString += "<td>" + jsonItem.last_update + "</td>";
-            fullString += "<td>" + jsonItem.version + "</td>";
-            fullString += "<td>" + jsonItem.environment_name + "</td>";
-            fullString += "<td>" + jsonItem.ip_activation + "</td>";
-            fullString += "</tr>";
+            // fullString += "<td>" + jsonItem.easy_name + "</td>";
+            //fullString += "<td>" + jsonItem.ip + "</td>";
+            // fullString += "<td>" + jsonItem.last_update + "</td>";
+            // fullString += "<td>" + jsonItem.version + "</td>";
+            //fullString += "<td>" + jsonItem.environment_name + "</td>";
+            //fullString += "<td>" + jsonItem.ip_activation + "</td>";
+            //fullString += "</tr>";
         });
 
         $('.table tbody').empty().append(fullString);

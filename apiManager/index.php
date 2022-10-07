@@ -75,12 +75,12 @@ function getSabyTable()
 {
     try {
         $db = getDb();
-        $Query = "SELECT id,saby,server from saby_list limit 3";
+        $Query = "SELECT id,saby,server from saby_list limit 10";
         $fetchQuery = $db->prepare($Query);
         $fetchQuery->execute();
         $result = $fetchQuery->fetchAll(PDO::FETCH_ASSOC);
         // $return['data'] =  $result;
-        echo json_encode(array('data' => $result)); // because the data come from database in array form 
+        echo json_encode(array('data' => $result));
     } catch (Exception $e) {
         restError($e->getMessage());
     }

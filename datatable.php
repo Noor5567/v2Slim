@@ -49,13 +49,15 @@
         // });
 
         $(document).ready(function() {
+            $('#example').DataTable().destroy();
             $('#example').DataTable({
 
+                //destroy: true,
                 "ajax": {
                     "url": "apiManager/getSabyTable", //task do refresh the table after 30 sec 
                 },
                 "columns": [{
-                        "data": "id" // data ---> and how the data name come from database 
+                        "data": "id"
                     },
                     {
                         "data": "saby"
@@ -64,11 +66,21 @@
                         "data": "server"
                     }
                 ]
+
             });
-            /*setInterval(function() {
+            /*
+            setInterval(function() {
+                table.ajax.reload();
+            }, 10000);*/
+
+            setInterval(function() {
                 $('#example').load("apiManager/getSabyTable");
                 refresh();
-            }, 30000);*/
+            }, 10000);
+            //table.rows.add(columns).draw()
+            //$('#example').draw(result);
+
+            //setInterval('#example', 30000);
         });
     })
     </script>
